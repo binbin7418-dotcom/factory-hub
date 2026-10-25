@@ -10,14 +10,14 @@
 |---|---|---|---|---|
 | 0 | SheetFix（样板） | Excel 审计修复 | 在售 | binbinster.gumroad.com/l/sheetfix-excel-audit；13 条缺陷修 5、连带消除共 8、剩 5 判断级、新引入 0 |
 | 1 | FeedFix | Google Shopping Feed 修复 | 在售 | /l/feedfix-google-shopping-feed-repair；12 商品 21 问题修 10、剩 11（5 阻断）、新引入 0 |
-| 2 | EPUBFix | EPUB 发布前检查修复 | 在售 | /l/epubfix-epub-check-repair；种子 6 缺陷结构类修 2、剩 3（2 阻断） |
+| 2 | EPUBFix | EPUB 发布前检查修复 | 已决定不卖（从未成功上架） | 2026-10-25 核查：Gumroad 公开页 404、后台无此商品——建厂当日「已上架」回执不实；竞品复盘判定付费证据最弱，用户 2026-10-25 拍板下架（无架可下）；仓库与落地页保留，落地页已标停售 |
 | 3 | AudioFix | 播客响度标准化+剪静音 | 在售 | /l/audiofix-podcast-loudness；-29.9→-15.9 LUFS、剪静音 4.2s、PASS |
 | 4 | ShopifyCsvFix | Shopify 商品 CSV 修复 | 在售 | /l/shopifycsvfix-product-csv-repair；5 行 14 问题修 11、剩 3 阻断 |
 | 5 | ListClean | 邮箱列表本地清洗 | 在售 | /l/listclean-local-email-list-cleaner；12 行→干净 7、去重 1、无效拒 2、一次性域名 1 |
 | 6 | SilenceCut | 口播视频剪静音/气口 | 在售 | /l/silencecut-talking-head-silence-remover；9s→6.5s、静音 3.0→0.4s（边界：删口水词需转写，文案已明示） |
-| 7 | SubtitleFix | SRT/VTT 字幕修复 | 在售 | /l/subtitlefix-srt-vtt-repair；分隔符/重叠/零时长/空条共 4 修、复检 PASS |
+| 7 | SubtitleFix | SRT/VTT 字幕修复 | 已下架（2026-10-25） | /l/subtitlefix-srt-vtt-repair 已 Unpublish（未删除）；竞品复盘判定付费证据最弱，用户拍板下架；引擎保留，日后可作视频工具包附赠 |
 | 8 | PrintReady | KDP 印刷 PDF 预检修复 | 建成待上架 | slug: printready-kdp-pdf-precheck；5 页种子书 2 处结构修复、复检如实报 3 阻断；卡点：安装包回传通道停摆，cron 自动接管中 |
-| 9 | ImageBatch | 卖家图片批量预处理 | 建成待上架 | slug: imagebatch-marketplace-photo-prep；EXIF 摆正/限尺寸/剥元数据/整夹小 67%；同上卡点 |
+| 9 | ImageBatch | 卖家图片批量预处理 | 建成待上架 | 2026-10-25 复盘改定位 Etsy-first，slug: etsy-listing-photo-prep，文案已修订待上架直接使用；EXIF 摆正/限尺寸/剥元数据/整夹小 67%；卡点同上（回传通道） |
 | 10 | QRBatch | CSV 批量二维码+打印版 | 建成待上架 | slug: qrbatch-bulk-qr-print-sheets；5 行→4 码、2 警告、A4 300dpi 打印版；同上卡点 |
 
 另有旧产品：SKU Operations Copilot（$19，在售，0 销量，binbinster.gumroad.com/l/shopify-sku-ops-copilot，落地页 sku.vn-node.cc.cd）。
@@ -41,7 +41,7 @@
   - 地产版 WhatsApp Lead Receptionist for Real Estate Agents：在售 binbinster.gumroad.com/l/whatsapp-receptionist-real-estate（热线索实测 100 分）
   - 汽修版 WhatsApp Lead Receptionist for Auto Repair Shops：在售 /l/whatsapp-receptionist-auto-repair（热线索实测 85 分）
   - 美容版 WhatsApp Lead Receptionist for Beauty Salons & Spas：建成待上架（热线索实测 95 分；2026-10-25 撞 Gumroad 每日新建 10 个上限，已排 10-26 上午自动补上架，slug: whatsapp-receptionist-beauty-salon）
-- n8n 官方模板库：第 10 个产品位。提交路径已摸清（n8n.io/workflows → Creator hub → creators.n8n.io），但保险库 n8n.io 登录被创作者门户拒绝（Login error — Unauthorized），待用户更新该登录后再提交；社区展示帖（待平台审批）暂代官方渠道占位。
+- n8n 官方模板库：第 10 个产品位。提交路径已摸清（creators.n8n.io）；卡点为保险库内该站点登录的用户名存成了实例地址而非邮箱，已停手不再弹卡，记入攒批清单（用户顺手重存后补交）。云实例活样板已建成：weib.app.n8n.cloud 内「WhatsApp Lead Receptionist — Live Demo」（12 节点，样例实测 85 分/Hot，未激活），试用约至 2026-11-08。
 - 样品资产：WhatsApp Lead Receptionist 工作流（仓 github.com/binbin7418-dotcom/whatsapp-lead-receptionist；社区展示帖待平台审批）；线索打分 demo 实测版（11 用例全过，Hot ≥70 / Warm ≥45）。
 - 社区应征：累计 6 封（邮箱/私信），截至 2026-10-25 暂无回复，巡检持续盯。
 
@@ -49,3 +49,4 @@
 
 - 2026-10-25：中枢仓建立；11 个落地页全部上线核验；3 个产品等安装包回传后由 cron `gumroad-final3-watch` 自动上架。
 - 2026-10-25 下午：n8n 线扩到 10 个产品位——Gumroad 行业包 3 个建成并逐包验收（地产/汽修已在售，美容待次日补上架）；n8n 模板库提交卡在创作者门户登录，路径已记录待办。
+- 2026-10-25 傍晚：竞品拆解复盘完成——SubtitleFix 下架、EPUBFix 确认从未上架并决定不卖（在售工具实为 6 个，逐个公开页核验）；待上架 3 个产品文案按复盘修订（ImageBatch Etsy-first / QRBatch 印刷标签 / PrintReady 拒审钩子+退款保证）。
