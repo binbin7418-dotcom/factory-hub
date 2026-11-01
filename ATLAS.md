@@ -85,11 +85,11 @@ AmazonReady（TS，2026-03）、vvhub（TS，Codex for OSS 申请材料）、XRS
 3. Skills 检索复测（目录刷新后重跑第 9 条「查仓库星数」负样本）。
 4. HyperFrames 0.8.223 整片重渲升级判定（现锁 0.8.78）；faster-whisper 接入判定（每周学习轮次跟进）。
 5. 女娲蒸馏法落到服装线人物风格与故事线叙事风格各一次实作。
-6. lemo-opuscar 风格语法消化（2026-11-02 入库 external-skills/lemo-opuscar）：ink-wash 并入故事线 FORMAT-STANDARD 画风锁定章（故事线定版时）；whiteboard/dataviz 等对位科普模板语言时再取。
+6. lemo-opuscar 技术深学（2026-11-02 他定调：不试它的风格样片、不跟在别人后面；学它的知识——动效、风格、布局、音效——学好技巧后自创风格）：✅ 深学完成，STUDY.md 五章 + OUR-STYLE-TEMPLATE.md 在 research_notes/lemo-opuscar-study-20261102/。待落地（报告附录优先级）：①阅读时长检查器并入 spotcheck ②timeline 单一真源 + cue 偏差表验收 ③ASR 逐行复检规则补进故事线 QA（修 asr_numbers 中文误报）。原「ink-wash 并入 FORMAT-STANDARD」口径作废。
 
 ## 五、排查清单（未关的问题，关一个划一个）
 - [x] GeoIP 数据仓余 277 文件上传 + v3 worker 部署 + 线上 5 条验真。（2026-11-02 02:12 完工，见 memory/2026-11-02.md）
-- [ ] newkw 站 GSC 提交 + IndexNow（SEO 计时未开始，最急）。
+- [x] newkw 站 GSC 提交 + IndexNow（2026-11-02：IndexNow 202 受理；GSC 所有权验证通过，验证文件 google7e2e7b06294a1b5d.html 勿删）。残项：sitemap 已提交但 GSC 显示「无法抓取」——盒侧以 Googlebot UA 实测 200/application/xml、robots 全放行，判为新属性首次抓取的常见暂态，不删不重提，数日后复查状态。
 - [ ] factory-hub 的 PRODUCTS.md 同步 GitHub（本地已新、GitHub 侧停在 10-29）。
 - [ ] 根集合站 sitemap 补入新工具落地页。
 - [ ] video-product 私有仓用 video-mcp 当前源码更新（排除缓存与成片大文件）。
