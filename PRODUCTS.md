@@ -28,7 +28,7 @@
 
 另有旧产品：SKU Operations Copilot（$19，在售，0 销量，binbinster.gumroad.com/l/shopify-sku-ops-copilot，落地页 sku.vn-node.cc.cd）。
 
-## 二、RapidAPI 线（目标 100，当前公开 27 个）
+## 二、RapidAPI 线（目标 100，当前公开 31 个）
 
 统一：免费层 + PRO/ULTRA 订阅；源站 Cloudflare Pages；网关实测全过；真实订阅 0。2026-10-26 提额已批（工单 144055），每账号 20 个公开上限已移除，可继续上架。
 
@@ -67,7 +67,10 @@
 
 - 2026-10-25：中枢仓建立；11 个落地页全部上线核验；3 个产品等安装包回传后由 cron `gumroad-final3-watch` 自动上架。
 - 2026-10-25 下午：n8n 线扩到 10 个产品位——Gumroad 行业包 3 个建成并逐包验收（地产/汽修已在售，美容待次日补上架）；n8n 模板库提交卡在创作者门户登录，路径已记录待办。
+
 - 2026-10-25 傍晚：竞品拆解复盘完成——SubtitleFix 下架、EPUBFix 确认从未上架并决定不卖（在售工具实为 6 个，逐个公开页核验）；待上架 3 个产品文案按复盘修订（ImageBatch Etsy-first / QRBatch 印刷标签 / PrintReady 拒审钩子+退款保证）。
 - 2026-10-25 晚：RapidAPI 第三、四批上架，公开数达 20 撞平台上限；FXRates 切 Private 给 QuakeWatch 腾位；提额工单已提交；二号（Wbin7416）注册成功、PayPal 关联待续。n8n 行业包新增牙科/健身/宠物 3 包建成验收。
 - 2026-10-26 凌晨：第二批 3 工具（PageSmith/StampBatch/DupeLens）仓库建成并经 GitHub API 逐仓核验（文件齐全、build-windows 全部 success、落地页已上线）；Gumroad 上架排 10-27。本文件为本地先行更新，GitHub 中枢仓与根集合页待上架完成后一并同步。
 - 2026-10-27：分发侧同步定版——Gumroad 在售 15 个（PrintReady/ImageBatch/QRBatch 晚间走重新下载 artifact→本地验包→授权逐个上传路线全部上架并经公开页核验，cron `gumroad-final3-watch` 已停用；第四批 DateShift $9、MetaScrub $19 同晚在售）；n8n 行业包 6 个全部在售；RapidAPI 公开 27 个（提额已批、GeoPlaces 与第六批 4 个经公开页核验）；本文件 2026-10-27 夜同步至 GitHub 中枢仓，根集合页与 sitemap 同步更新为 15 个工具落地页。
+
+- 2026-10-29 晚：RapidAPI 第七批 3 个 + 第八批 Shopify Catalog Cleaner 全部上架并经公开页核验，公开数 27 → 31（GitHub 会话登录）；GSC sitemap 已删除重提成功。本地 PRODUCTS.md 已同步，GitHub 中枢仓同步待下一次浏览器窗口顺带推。
