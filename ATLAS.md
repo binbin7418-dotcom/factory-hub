@@ -13,7 +13,7 @@
 | sku-ops-landing | SKU Operations Copilot 落地页（sku.vn-node.cc.cd） | index.html |
 
 ### 产品工具仓（每个 = 一个 Gumroad $29 工具：源码 + Actions 云构建 + docs/ 落地页）
-在售 26：sheetfix、feedfix、audiofix、shopifycsvfix、listclean、silencecut、pagesmith-pdf、stampbatch、dupelens、contactfix、printready、imagebatch、qrbatch、dateshift、metascrub、audiobookspecfix、invoicebatch、statementsift、puzzlepress、mailmend、ledgerlink、deckshrink、stitchchart、codewordforge、redactready、formfillbatch。
+在售 28：sheetfix、feedfix、audiofix、shopifycsvfix、listclean、silencecut、pagesmith-pdf、stampbatch、dupelens、contactfix、printready、imagebatch、qrbatch、dateshift、metascrub、audiobookspecfix、invoicebatch、statementsift、puzzlepress、mailmend、ledgerlink、deckshrink、stitchchart、codewordforge、redactready、formfillbatch、crosswordpress、logicgridpress（后两批 2026-11-03 凌晨上架并经公开页核验，店铺 45→47；SudokuPress 在途未计）。
 不卖（仓保留）：epubfix（从未上架）、subtitlefix（已下架，引擎保留）。
 找构建产物：仓内 Actions 的 build 工作流 artifact（双层 zip）；找落地页文案：docs/index.html。
 
@@ -32,7 +32,8 @@ AmazonReady（TS，2026-03）、vvhub（TS，Codex for OSS 申请材料）、XRS
 |---|---|---|
 | wechat-miniapp-studio | 小程序三件（01 本官听你说 / 02 拍万物学英语 / 03 这单我报销），Codex 主跑 | 以仓内 docs/product-registry.md 为准 |
 | video-product | PitchReel 引擎 2026-10-31 快照 | 已过期；当前版见 pitchreel 仓 |
-| fashion-film-factory | 服装线资产（模特库 43 张 + README） | 2026-11-02 已落仓核验；knowledge 文档待补传 |
+| fashion-film-factory | 服装线资产（模特库 43 张 + README） | 2026-11-02 已落仓核验；knowledge+蓝图备份包 fashion-knowledge-20261102.zip 与 BACKUP-NOTE.md 已于 2026-11-03 凌晨核验在仓，资产备份齐全 |
+| comedy-line | 搞笑动画线资产（cast/概念/EP01 生产/文档/skill-run 共 5 包，39 条废片全排除） | 2026-11-03 凌晨仓库根目录列表亲核，5 包在列（本地备份源在 ip-animation/comedy-line/backup-20261103/） |
 | skills-backup | 自有 skills + 外部技能索引备份（zip） | 2026-11-02 建成并经第二窗口复核（Private＋zip＋README 在列） |
 | product-factory | 产品工厂备份：总表/第五批/n8n 包源码（zip） | 2026-11-02 建成并经第二窗口复核（Private＋zip＋README 在列） |
 | rapidapi-sources | RapidAPI 全部 worker 源码备份（zip） | 2026-11-02 建成并经第二窗口复核（Private＋zip＋README 在列） |
@@ -48,7 +49,7 @@ AmazonReady（TS，2026-03）、vvhub（TS，Codex for OSS 申请材料）、XRS
 | video-mcp | PitchReel 引擎 + 网站（主力一） | web/（站点与定价 PRICING-AND-LAUNCH.md、客服 SUPPORT.md、自测 SELFTEST-20261101.md）；GAPS.md 缺口表；tools/spotcheck.py 第二道闸 |
 | fashion-film-factory | 服装线（主力二） | BLUEPRINT.md 蓝图；MODEL-BASE-PLAN.md 模特方案；models/ 模特库；knowledge/ 方法资产（姿势/气场/运镜/拉片） |
 | story-koubo-experiment | 图文故事口播实验二 | remake-v2/ 起为新格式样片；稿件 EP01 苏轼 |
-| goals/seo | 新词出海 SEO 站（引擎线） | site/（newkw.pages.dev 源码，10 页已上线） |
+| goals/seo | 新词出海 SEO 站（引擎线） | site/（newkw.pages.dev 源码，18 页已上线，2026-11-03 凌晨 dist/sitemap 18 条核验） |
 | rapidapi-batch* | RapidAPI 各批源站与 worker | batch3/geoip 含城市版 v2 worker 与数据暂存 |
 | custom-skills | 自有 skills（9 个） | INDEX.md 总索引（触发场景+负样本） |
 | external-skills | 外部 skills 实物库 | INDEX.md 逐卡登记（用途/许可/状态/路径） |
@@ -93,9 +94,10 @@ AmazonReady（TS，2026-03）、vvhub（TS，Codex for OSS 申请材料）、XRS
 - [x] factory-hub 的 PRODUCTS.md 同步 GitHub（2026-11-02 02:26 同步；03:4x 夜复盘 API 实查：远端 ATLAS.md 10685B、PRODUCTS.md 11181B，均与本地字节数一致，03:36「本地已更新、GitHub 尚未跟上」担忧已消除）。
 - [ ] 根集合站 sitemap 补入新工具落地页。
 - [ ] video-product 私有仓用 video-mcp 当前源码更新（排除缓存与成片大文件）。
-- [ ] story-koubo-experiment、custom-skills、external-skills 建备份仓。
+- [x] story-koubo 备份仓已建并经第二窗口复核（2026-11-02）。
+- [ ] custom-skills、external-skills 备份仓待补（skills-backup 已建，但 lemo-opuscar 112MB 全仓未入，待瘦身方案，不记为已备份）。
 - [ ] PitchReel Standard 时长文案口径（实测 83s vs 标称 ≈60s）微调。
-- [ ] spotcheck 的 asr_numbers 补阿拉伯数字等价形（中文片误报）。
+- [x] spotcheck 的 asr_numbers 补阿拉伯数字等价形（2026-11-02 夜复盘实测：中文位值/逐字/小数归一比对已落地，34 条断言全过）。
 - [ ] 邀请码 samseah 池计数读不到、夜影小窝 DNS 间歇不可达（监测缺口，非下架证据）。
 - [ ] Danish_Koul_14 客户对话静默（等回复，不主动追第二封）。
 
