@@ -67,3 +67,42 @@
 3. X 登录重试（14:52 runonce）与 Seedly 邮箱验证回执确认。
 4. RapidAPI 第十批交卷后走平台提交；n8n 第三批上架（含花店定夺）。
 5. PRODUCTS.md 注册表全量补齐至 47 店铺现状。
+
+## 2026-11-04（凌晨复盘，覆盖 11-03 白天至 11-04 02:5x；本 cron 产物，只写文件、不打扰）
+
+### 已完成（均已核验）
+- **Gumroad 店铺 55→56**：11-03 晚主会话逐页活页实测更正（此前 45/47/50/55 均为滚动时点数，以 56 为准）；分项：工具类 37＋n8n 包 16＋PitchReel 2＋体检 1。第六批 5 个与第七批 5 个全部上架收官（各仓 API trees＋Actions＋Gumroad 公开页亲核）。
+- **第八批 5 个建成待上架**：ShikakuPress、CryptogramPress、QueensPress、BinairoPress、MazePress，验收合计 41/41、本机 PyInstaller 旁证齐全；其中 MazePress 待他拍板（曾两度因锚撑不起 $29 淘汰，本批以 $17/$27 新锚复活，主会话未擅自上架）。
+- **RapidAPI 40→99**：第十批至第十五批全部公开（第十五批 9 个：QuestBase、PotterBase、GalaxyDex、BoredBase、OrbitTrack、CrimeLens、CarbonGrid、PrizeBase、TideBase；合并四品按 /<slug> 前缀进 batch15-extra-api 项目）；CF Pages 已满 100/100，再扩品须先并项目或清位；LondonTransit 生产闸 7/14 挂起（TfL 匿名额度被 CF 共享出口占满），隔日复测。
+- **EP01《抢大福》收官**：7 拍全过逐拍验收闸（1/2b/3b/4/5 各 5.17s＋6L 12.25s 长镜头＋7F 7.29s），拼接 EP01-full.mp4；本轮 ffprobe 实测 45.41 秒/1216×672/24fps/h264＋aac/8.2MB，与日志一致。长镜头实测 20 分 54 秒（5 秒拍约 5 分钟的 4.2 倍），买的是接缝少不是省时。
+- **Agent 可读产品页长期线**：结构化目录层上线 https://binbin7418-dotcom.github.io/agent-catalog/；Gumroad 描述应用 56/56、Payhip 15/15（含 About Me）全部改完并逐个核验。
+- **封面与图标推进**：Gumroad 封面 25/56 双图齐备（第 6 批窗口问题待 03:05 续跑）、Payhip 封面 15/15 收官；RapidAPI 图标 31/99（第 4 批被叫停前已传 2 个）；56 张 Gumroad 封面已程序化生成。
+- **备份收官**：动画资产 5 包进私有仓 comedy-line（39 条废片全排除）、服装线备份齐全、lemo 蒸馏核心 4 包进 skills-backup（214 文件/4.61MB，第二窗口核对）。
+- **渠道与获客**：Meta 双渠道（FB 魏滨个人号、IG @vison_visual6）连接并首发 PitchReel 推广帖；目录提交 3 家待审（AI Tools Directory、Insidr.ai、ToolPilot）；Honey Collection 跟进邮件 11:19 已发；Wonsulting 外联草稿已备、等他批准再发。
+- **方法沉淀**：火山「视频改口型」官方核实（与百炼 VideoRetalk 同类，须单独开通＋另配 OpenAPI AK/SK，公开文档无单价）＋岚叔四件转自有落地（plancheck 脚本 23 断言全过、只新增未接线）；连贯手册成书（452 行，主会话验讫）；对标拆解两案（荒漠动物喜剧、小鹅吃辣椒）已入 TEARDOWNS.md，EP03 起执行新分镜语法；多宫格分镜 skill 调研完成（libtv clean 工序＋槽位契约最对症，整版直喂已证伪不引进）。
+
+### 未完成 / 卡点
+- n8n 行业包第三批：04:27、09:52、23:52 三连撞 Gumroad 滚动 24h 新建上限，均 0 个建成（报错原话 "Sorry, you can only create 10 products per day."）；不再盲约重试，下次前先查店铺最近 10 个产品创建时间算窗口释放时刻。花店包压着待更强付费证据；水暖空调随后排。
+- 导播台工作台实例 11-04 01:44 遭攻击失陷：无鉴权 ComfyUI 裸奔公网直连 IP，遭 SSTI 探测＋ctypes 加载 .so（RCE 级）＋/interrupt 反复打断，EP02 第 1 镜 12 次尝试全灭；已停机止损（本次约 1.8 小时≈¥3.7，余额约剩 ¥7.9），该实例永不复用。EP02 续产待安全重建（优先 cpod 子域入口）；另 S02 池塘水岸无定版场景图，重跑前先补图。AGENTS.md 已新增「无鉴权服务绝不裸奔公网」铁律。
+- X/PH/IH 渠道：X 冷却重试（14:52）仍被登录握手整体拒绝；PH/IH 换 7416 试 17:43 超时终局未成；Reddit 云端注册与登录双向全关，定版只走他本人 Gemini 环境＋Binbin 现成账号，我方只备文案。n8n 社区登录会话 11-03 起丢失，私信箱未直查（心跳多次记为覆盖缺口，非无新增）。
+- 模板 22016：Miha 04:31 反馈（标题已过、sticky notes 未达标）已落档；Muse 先重写 stickies 再攒一次请他用 wbin7419 登录重提。
+- PRODUCTS.md 注册表仍严重滞后（停在早期条目），全量补齐仍为白天待办，勿以注册表为准报数。newkw GSC 复查 11-03 11:30 被账号会话拦下（约 11-05 复查，首印象为第一信号）。
+- 优云余额口径：¥9.90 是他刚充值的真钱（另有赠送 ¥1.75），他定调省着点用、可用 3 天；实例不许空转挂长时，跑完即停。
+- 工作流上架变现意向（他 00:16 提出）待他点选两选项；EP02 同镜头加速 A/B 定生产档待导播台重建后做。
+
+### 当晚推进验收（均在授权内、零支出、零验证、零对外承诺）
+- ①AGENTS.md 新增两条：导播台无鉴权裸奔公网铁律、Gumroad 滚动 24h 上限排产法。②ATLAS.md 计数更新：工具在售 37、店铺 56、RapidAPI 99、comedy-line 行补 EP01 收官与导播台失陷、排查清单新增 6 项。③DAILY-OPS.md 计数更新（56/15/99）与 Gumroad 目标 50→100。④本条目。
+
+### 健康检查
+- PitchReel 三 unit 均为 active 且 enabled，本机 /health 返回 ok（jobs 0、queued 0），watchdog 写入至 02:59 CST 四路径 ok；alerts.jsonl 246 行、error 级 106 条，末条仍为 11-03 21:17 CST watchdog_recovered，此后无新增 error；feedback.jsonl 仍空。VM uptime 约 6 小时，即约 20:58 11-03 第 11 次重启后无新重启。
+- 当日 cron 近 30 运行：失败标记均为心跳覆盖缺口报告（n8n 会话丢失、邀请码个别点未核实）与 gumroad 重试 0/3 预期失败，无新增服务故障；其余均为 succeeded。
+
+### 收入状态
+- Muse 自有线仍为 0（Gumroad 56 在售 / RapidAPI 99 / Payhip 15 / n8n 包在售 16＋待上架 5，均无真实订单）；无第一笔真实收益；无账号重大异常需夜里打扰（导播台攻击实例已停机止损，留待白天定重建）。
+
+### 次日优先级（11-04 白天）
+1. 导播台安全重建＋EP02 续产（先补 S02 场景图；重建必须带访问控制）。
+2. 算 Gumroad 窗口释放时刻再约 n8n 第三批；第八批上架（MazePress 待他拍板）。
+3. LondonTransit 隔日复测；PRODUCTS.md 注册表全量补齐。
+4. 封面/图标续跑（03:05 续跑 cron 已排；视频唯一优先下白天暂停）。
+5. 22016 stickies 重写后攒一次请他登录重提；工作流上架变现等他点选。
