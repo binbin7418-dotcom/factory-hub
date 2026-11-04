@@ -13,7 +13,7 @@
 | sku-ops-landing | SKU Operations Copilot 落地页（sku.vn-node.cc.cd） | index.html |
 
 ### 产品工具仓（每个 = 一个 Gumroad $29 工具：源码 + Actions 云构建 + docs/ 落地页）
-在售 37（工具类；店铺合计 56＝工具类 37＋n8n 包 16＋PitchReel 2＋体检 1，2026-11-03 晚主会话逐页活页实测）：sheetfix、feedfix、audiofix、shopifycsvfix、listclean、silencecut、pagesmith-pdf、stampbatch、dupelens、contactfix、printready、imagebatch、qrbatch、dateshift、metascrub、audiobookspecfix、invoicebatch、statementsift、puzzlepress、mailmend、ledgerlink、deckshrink、stitchchart、codewordforge、redactready、formfillbatch、crosswordpress、logicgridpress、sudokupress、qifsift、woocsvfix（第六批 5 个，2026-11-03 凌晨上架，店铺 45→50）、mathsheetpress、iifsift、calcudokupress、futoshikipress、mosaiccolorpress（第七批 5 个，店铺 50→55）。第八批 5 个（shikakupress、cryptogrampress、queenspress、binairopress、mazepress，验收 41/41）已建成待上架，其中 MazePress 待他拍板（曾两度因锚撑不起 $29 淘汰，本批以 $17/$27 新锚复活）。
+在售 37（工具类；店铺合计 59＝工具类 37＋n8n 包 16＋PitchReel 2＋体检 1＋新词卖货站包 3（Terra/Genie/Kling 各 $9.99，2026-11-04 晚均经公开页验活），2026-11-03 晚主会话逐页活页实测 56 为基数）：sheetfix、feedfix、audiofix、shopifycsvfix、listclean、silencecut、pagesmith-pdf、stampbatch、dupelens、contactfix、printready、imagebatch、qrbatch、dateshift、metascrub、audiobookspecfix、invoicebatch、statementsift、puzzlepress、mailmend、ledgerlink、deckshrink、stitchchart、codewordforge、redactready、formfillbatch、crosswordpress、logicgridpress、sudokupress、qifsift、woocsvfix（第六批 5 个，2026-11-03 凌晨上架，店铺 45→50）、mathsheetpress、iifsift、calcudokupress、futoshikipress、mosaiccolorpress（第七批 5 个，店铺 50→55）。第八批 5 个（shikakupress、cryptogrampress、queenspress、binairopress、mazepress，验收 41/41）已建成待上架，其中 MazePress 待他拍板（曾两度因锚撑不起 $29 淘汰，本批以 $17/$27 新锚复活）。
 不卖（仓保留）：epubfix（从未上架）、subtitlefix（已下架，引擎保留）。
 找构建产物：仓内 Actions 的 build 工作流 artifact（双层 zip）；找落地页文案：docs/index.html。
 
@@ -33,7 +33,7 @@ AmazonReady（TS，2026-03）、vvhub（TS，Codex for OSS 申请材料）、XRS
 | wechat-miniapp-studio | 小程序三件（01 本官听你说 / 02 拍万物学英语 / 03 这单我报销），Codex 主跑 | 以仓内 docs/product-registry.md 为准 |
 | video-product | PitchReel 引擎 2026-10-31 快照 | 已过期；当前版见 pitchreel 仓 |
 | fashion-film-factory | 服装线资产（模特库 43 张 + README） | 2026-11-02 已落仓核验；knowledge+蓝图备份包 fashion-knowledge-20261102.zip 与 BACKUP-NOTE.md 已于 2026-11-03 凌晨核验在仓，资产备份齐全 |
-| comedy-line | 搞笑动画线资产（cast/概念/EP01 生产/文档/skill-run 共 5 包，39 条废片全排除） | 2026-11-03 凌晨仓库根目录列表亲核，5 包在列（本地备份源在 ip-animation/comedy-line/backup-20261103/）；EP01《抢大福》2026-11-04 00:24 收官（7 拍全过逐拍验收闸，EP01-full.mp4 45.4 秒，夜复盘 ffprobe 实测 1216×672/24fps 一致）；导播台工作台实例 2026-11-04 01:44 遭攻击已停机、永不复用，EP02 续产待安全重建（优先 cpod 子域入口），另 S02 池塘水岸无定版场景图、重跑前先补图 |
+| comedy-line | 搞笑动画线资产（cast/概念/EP01 生产/文档/skill-run 共 5 包，39 条废片全排除） | 2026-11-03 凌晨仓库根目录列表亲核，5 包在列（本地备份源在 ip-animation/comedy-line/backup-20261103/）；EP01《抢大福》2026-11-04 00:24 收官（7 拍全过逐拍验收闸，EP01-full.mp4 45.4 秒，夜复盘 ffprobe 实测 1216×672/24fps 一致）；导播台工作台实例 2026-11-04 01:44 遭攻击已停机、永不复用；新站 cpod-1xa9hxnr4nez（4090，¥2.15/时）2026-11-04 夜–11-05 凌晨跑完 EP02：6/6 镜全过逐拍验收闸，拼合 EP02-full.mp4（61.46s/1216×672/24fps，夜复盘 ffprobe 实测一致），实例已停机；2026-11-05 01:04 用户看完成片判定「没声音、没故事」下令放弃，此路线（Director＋H3 无声逐镜拼接）就此结案，EP03 不按此路线开工，成片与状态文件留档不动、私有仓备份尚未传 |
 | skills-backup | 自有 skills + 外部技能索引备份（zip） | 2026-11-02 建成并经第二窗口复核（Private＋zip＋README 在列） |
 | product-factory | 产品工厂备份：总表/第五批/n8n 包源码（zip） | 2026-11-02 建成并经第二窗口复核（Private＋zip＋README 在列） |
 | rapidapi-sources | RapidAPI 全部 worker 源码备份（zip） | 2026-11-02 建成并经第二窗口复核（Private＋zip＋README 在列） |
@@ -97,8 +97,12 @@ AmazonReady（TS，2026-03）、vvhub（TS，Codex for OSS 申请材料）、XRS
 - [ ] PRODUCTS.md 注册表全量补齐（仍停在早期条目，未含第四批后全部产品与 56 店铺现状；勿以注册表为准报数）。
 - [ ] n8n 社区登录会话 2026-11-03 起丢失，私信箱未直查（心跳多次记为覆盖缺口，非无新增），待白天恢复会话后补查。
 - [ ] Gumroad n8n 第三批滚动 24h 上限三连拦（04:27、09:52、23:52 均 0/3），下次重试前先算窗口释放时刻；花店包压着待更强付费证据，水暖空调随后排。
-- [ ] 导播台安全重建＋EP02 续产（被攻击实例已停机永不复用；先补 S02 场景图）。
-- [ ] RapidAPI 在售 99（第十五批 9 个收官）；CF Pages 已满 100/100，再扩品须先并项目或清位；LondonTransit 生产闸 7/14 挂起、隔日复测；图标 31/99、封面 Gumroad 25/56 双图齐备（03:05 续跑 cron 已排，视频唯一优先下白天暂停）。
+- [x] 导播台安全重建＋EP02 生产（2026-11-05 凌晨 6/6 镜收官；同日 01:04 用户否决整条无声逐镜路线而结案，EP03 不按此路线开工——不是成功上线，是生产完成＋用户否决结案）。
+- [x] RapidAPI 在售 100（2026-11-04 第 100 个 CardCheck 公开：https://rapidapi.com/binbin7418/api/cardcheck ，Finance，BASIC 免费 500/月、PRO $5/10,000、ULTRA $19/50,000；Studio 项目列表实数 100；LondonTransit 仍挂起、由 CardCheck 补位，不再复测排队）；CF Pages 已满 100/100，再扩品须先并项目或清位；图标 99/99 已补齐；第一梯队 v2（EmailCheck 批量＋RDAP 域名年龄、PhoneCheck 批量体检、LyricLine 缓存提速、Shopify 整店档案 /store-report＋/compare）均已部署并经 Studio 应用，EmailCheck 免费档维持 500/月不降（用户 11-04 16:00 拍板，诊断 200 方案作废）。
+- [ ] newkwlab.com 实名同步：模板 25377735 已实名成功（2026-11-05 01:12 用户截图），但域名本体 client hold 仍在、5 子域名仍 NXDOMAIN（2026-11-05 03:0x 夜复盘再查仍未生效）；生效后接三站绑域名＋网关 HTTPS＋pitchreel 入口验证。
+- [ ] 新词三站待办：GSC 与 Bing 站长工具提交未做；30 天首单观察期自 2026-11-04 起计，首单未出前不扩站。
+- [ ] EP02 成片与状态文件私有仓 comedy-line 备份尚未传（本地非 git 仓，须网页逐个单传；用户已否决该路线，备份留白天做，不列入已备份）。
+- [ ] RapidAPI 100 品功能审计修复与 Studio 第二批 23–45 条：审计结论 72 过/26 部分/1 挂（TrialFinder 文档与生产不符），修复与第二批应用截至 11-04 晚未见回执，勿记完成。
 - [x] story-koubo 备份仓已建并经第二窗口复核（2026-11-02）。
 - [ ] custom-skills、external-skills 备份仓待补（skills-backup 已建，但 lemo-opuscar 112MB 全仓未入，待瘦身方案，不记为已备份）。
 - [ ] PitchReel Standard 时长文案口径（实测 83s vs 标称 ≈60s）微调。

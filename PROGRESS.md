@@ -106,3 +106,45 @@
 3. LondonTransit 隔日复测；PRODUCTS.md 注册表全量补齐。
 4. 封面/图标续跑（03:05 续跑 cron 已排；视频唯一优先下白天暂停）。
 5. 22016 stickies 重写后攒一次请他登录重提；工作流上架变现等他点选。
+
+## 2026-11-05（凌晨复盘，覆盖 11-04 白天至 11-05 03:0x；本 cron 产物，只写文件、不打扰）
+
+### 已完成（均已核验，证据见各条）
+- **RapidAPI 正式满 100**：第 100 个 CardCheck（卡号 Luhn＋卡组织识别，纯算法零上游，进 batch15-extra-api 合并项目为第 5 品）2026-11-04 14:29–14:43 建 listing 并公开，公开页 https://rapidapi.com/binbin7418/api/cardcheck ，Finance 类目，BASIC 免费 500/月、PRO $5/10,000、ULTRA $19/50,000（旧记 $14 作废；重构后定价以此为准），Studio 项目列表实数 100；LondonTransit 仍挂起（TfL 匿名额度被共享出口占满、复测 429），由 CardCheck 补位，不再排队复测。图标 99/99 已补齐。
+- **结果型＋批量化标准定版并落地第一梯队**：诊断终稿结论——主因不是贵、不是调不通，是结果不够深（头部一次调用卖带风险判定的深字段结论，我方卖解析级浅层校验）；批量端点 12 家头部无一在做，定位为我方差异化卖点。第一梯队 4 个均已部署并经 Studio 应用：EmailCheck v2（批量＋RDAP 域名年龄，SMTP 探测不做、catch-all 只做风险提示；免费档维持 500/月不降——用户 11-04 16:00 拍板「先获得流量」，诊断 200 方案作废）、PhoneCheck v2（批量名单体检报告，批量在所有档位可用、1 次批量＝1 次调用计入配额）、LyricLine v2（缓存压延迟、suggest 兜底）、Shopify 整店档案（/store-report＋/compare，销量/评论/收入字段硬线不做）。三站流量排查结论同步定版：瓶颈在分发不在转化——Gumroad 56 品全部时间总浏览 150（大头是我方自访）、Payhip 总浏览 7、RapidAPI 是唯一有真实外部使用的渠道（仅 EmailCheck/PhoneCheck/LyricLine 三品有外部免费调用，付费订阅仍 0）。
+- **新词卖货站首批 3 站全部上线**：Terra 成本计算器、Genie 4 世界提示词构建器、Kling 4.0 分镜提示词构建器三站 GitHub Pages 均已上线（Kling 站构建曾卡住、靠重传 index.html 推过去，19:03 出 200）；三个 $9.99 包均 Gumroad 在售验活；GA4 已装（媒体资源 kw-store，三数据流 Terra G-8G47H9DLC5、Genie G-6SBGDMZBG5、Kling G-4XL64FEB3G，AI Assistants 自定义渠道组已建）；robots 补 OAI-SearchBot、FAQ 各扩至 11 条（可见与 JSON-LD 同步）的迭代版三站均已 serving。本轮夜复盘 curl 再验：三站首页均为 200。30 天首单观察期自 2026-11-04 起计。Gumroad 计数因此 56→59（工具 37＋n8n 包 16＋PitchReel 2＋体检 1＋卖货站包 3）。
+- **EP02 生产收官（随后被用户否决结案）**：新站 cpod-1xa9hxnr4nez（4090，¥2.15/时）当晚两段窗口合计约 90 分钟≈¥3.2、外来切断 0 次，6/6 镜全过逐拍验收闸，拼合 EP02-full.mp4；本轮夜复盘 ffprobe 实测 61.46 秒/1216×672/24fps/h264/22,258,690 字节，与日志一致。**但 2026-11-05 01:04 用户看完成片判定「没声音、没故事、完全不是那回事」下令放弃**——此路线（Director＋H3 无声逐镜拼接）就此结案，EP03 不按此路线开工；成片与状态文件留档不动，等他定新方向。本条不记为成功上线，只记生产完成＋用户否决结案。
+- **AWS 免费 AI 网关上线**：悉尼区 ap-southeast-2，EC2 i-027c28ef3eef8fd14（t3.micro，公网 IP 3.106.189.249），/health、/tts（Piper 真 WAV）、/ocr、/chat、/vision 2026-11-04 21:35 公网复测全通；模型已对齐 gemini-3-flash-preview。域名 newkwlab.com 已购（¥76，2026-11-04 21:30 注册），信息模板 25377735 已实名成功，但域名本体 client hold 仍在、5 子域名仍无解析（本轮 03:0x 再查：RDAP 仍含 client hold，api.newkwlab.com 公共解析仍 NXDOMAIN），差阿里云同步最后一步，监控续盯。
+- **Gemini Pro Key 实测结论**：连接器 custom.gemini-veo 已建并保留；Key 有效、模型清单 60 个，但 Veo 3 接不了（清单零 Veo、predictLongRunning 全 404，Pro 消费订阅不顶付费层级），生图三模型全 429（免费层级生图配额为 0）；此 Key 现只有文本/视觉理解类可用。是否给项目绑结算升付费层级，等他拍板。
+- **子木《AI 工具站 SEO 小册子》吸收报告交付**：~/workspace/research_notes/saas-seo-playbook-20261104/report.md（25 篇逐篇读完，含对我方资产的采纳清单与付费外链/付费工具/pSEO 扩量等不采纳标注），本轮夜复盘实读文件头与采纳/冲突节确认属实，11-04 晚「报告未回」悬项就此销案。
+- **uTest 付费问卷已提交**：SRS #39064＋筛选表单 2026-11-04 21:54 前后提交成功，入选与否等后续联系。
+
+### 当晚推进验收（均在授权内、零支出、零验证、零对外承诺）
+- ①AGENTS.md 新增两条：逐镜关镜打法＋按 history 取名下载；成片验收先对「有声音、有故事」根本再对画面（EP02 教训）。
+- ②ATLAS.md 计数与状态更新：Gumroad 56→59、RapidAPI 99→100（CardCheck 口径与 ULTRA $19 定价）、comedy-line 行补 EP02 收官＋用户否决结案、排查清单销两项（导播台/EP02、RapidAPI 满 100）并新增四项（newkwlab 同步、三站 GSC/Bing 提交、EP02 备份未传、审计修复与 Studio 第二批未结）。
+- ③DAILY-OPS.md 计数更新（59/15/100）与 Gumroad 现状行更新；§5「现有 40 个」旧口径仍滞后，留白天改，不以该节为准报数。
+- ④本条目；⑤独立再验：EP02 ffprobe、三站 200、newkwlab 仍未生效（见上）。
+
+### 未完成 / 卡点
+- n8n 行业包第三批仍未上架（Gumroad 滚动 24h 上限三连拦后未再约重试；花店包压着待更强付费证据；下次前先算窗口释放时刻）。第八批 5 个已建成待上架（MazePress 待他拍板）。
+- RapidAPI 100 品功能审计修复与 Studio 第二批 23–45 条：审计 72 过/26 部分/1 挂（TrialFinder 文档与生产不符），截至 11-04 晚未见回执，勿记完成。其他产品线升级波第一批 10/10 仅本地完成，Gumroad/Payhip 描述改动汇总为待改清单、尚未统一应用。
+- 新词三站 GSC 与 Bing 站长工具提交未做；newkw GSC 复查约 11-05 11:30（首印象为第一信号）；newkwlab 域名生效后才接三站绑域名＋网关 HTTPS＋pitchreel 入口验证。
+- EP02 成片与状态文件私有仓 comedy-line 备份尚未传（网页逐个单传，留白天；用户已否决该路线，不列入已备份）。queenspress 备份任务已派、无回执；binairopress、mazepress 两仓未派。
+- n8n 社区登录会话 2026-11-03 起丢失，私信箱未直查（心跳多次记为覆盖缺口，非无新增）；SaaSHub 他本人 11-04 16:30 决定自己办，不再跟进。Vortexa 免费主机部署卡在注册页。Gemini 项目升付费层级等他拍板。
+- PRODUCTS.md 注册表仍严重滞后（停在早期条目），勿以注册表为准报数。DAILY-OPS.md §5「现有 40 个」旧口径同理。
+- 动画线整体停下待核：MEMORY.md 载有他 2026-11-05 02:26 定调「动画这条路费了、太难搞，得想其他的」；但本轮复盘在 11-05 当日日志中未见对应条目，未独立核实——留白天主会话核对后再定为准，在核实前不以此为由动资产；已核实的部分是 EP02 路线本身已被他 01:04 否决结案。
+- 收入状态：Muse 自有线仍为 0（Gumroad 59 在售 / RapidAPI 100 / Payhip 15 / n8n 包在售 16＋待上架 5，均无真实订单）；无第一笔真实收益。无账号重大异常需夜里打扰（PitchReel 当晚三次停摆均约 2 分钟自愈，见健康检查）。
+
+### 健康检查
+- PitchReel 本机三进程在跑（app.py、watchdog.py、keepalive.sh，进程始于 02:19 CST），/health 返回 {"ok": true, "jobs": 0, "queued": 0}；alerts.jsonl 345 行、error 级 150 条，末条为 11-05 02:21 CST watchdog_recovered；feedback.jsonl 仍空（0 字节，自 10 月 31 日未变）。当晚新增停摆三次均自愈：11-04 22:29、11-05 00:13、11-05 02:19（每次 watchdog_down×4 后约 2 分钟恢复，恢复记录均已落盘）；02:19 后无新增 error，VM uptime 约 42 分钟（约 02:19 重启后无新重启）。注：本机 systemctl --user 在本环境报 "Failed to connect to bus: No medium found"，unit 状态以进程＋health＋watchdog 写入为准，不以该报错断言 unit 丢失；自愈 hook 本晚三次实战均生效。
+- 当日 cron 近 30 运行：失败标记均为心跳覆盖缺口报告（n8n 会话丢失）与 00:43 一次 Gmail binbin 侧 token 缺口（01:13 轮次已恢复闭合），无新增服务故障；其余均为 succeeded。
+
+### GitHub 同步
+- 本条目与 ATLAS.md、DAILY-OPS.md 本轮编辑已派浏览器窗口走已有 GitHub 会话上传覆盖 factory-hub 同名文件（禁换环境、禁弹凭证卡）；同步完成以 API 复核为准，未完成则待同步清单即本条目所列三文件。EP02 备份与上述资产备份不在本次同步内，见未完成清单。
+
+### 次日优先级（11-05 白天）
+1. newkwlab 域名生效后接三站绑域名＋网关 HTTPS＋pitchreel 入口验证；三站 GSC/Bing 提交。
+2. 算 Gumroad 窗口释放时刻再约 n8n 第三批；第八批上架（MazePress 待他拍板）。
+3. RapidAPI 审计修复与 Studio 第二批收尾；其他产品线升级波 listing 描述统一应用。
+4. EP02 私有仓备份单传；动画线停下后等他定新方向，不主动开新制作。
+5. newkw GSC 复查（11:30 runonce）与 PRODUCTS.md 注册表全量补齐。
