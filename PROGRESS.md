@@ -148,3 +148,59 @@
 3. RapidAPI 审计修复与 Studio 第二批收尾；其他产品线升级波 listing 描述统一应用。
 4. EP02 私有仓备份单传；动画线停下后等他定新方向，不主动开新制作。
 5. newkw GSC 复查（11:30 runonce）与 PRODUCTS.md 注册表全量补齐。
+
+## 2026-11-06（凌晨复盘，覆盖 11-05 白天至 11-06 03:4x；本 cron 产物，只写文件、不打扰）
+
+### 已完成（均已核验，证据见各条）
+- **RapidAPI 分流定级＋批量补齐＋FlightScope 上架**：全线定级 A 23 / B 59 / C 18；C 档 17 个唯一品转 Private 下架，在售 99→82；FlightScope 建 listing 并公开（adsb.lol 实况＋静态机场库，无计划时刻/延误/登机口；免费 150/月、PRO $9/10,000、ULTRA $29/50,000、MEGA $99/250,000），在售 82→83；B 档 6 品补批量端点（IBANCheck、CardCheck、UAParse、HostIntel、DNSLens、Page2MD），全线真批量端点 4→10；稳定性抽测 96/99（ChainPulse 502、TeamBase 503、NeoSky 503，均为上游问题）；EmailCheck 后台实价 PRO $9/月、ULTRA $29、BASIC 100 次/月（公开页 $5/$14 作废，今后只报后台/公开页实价、不报计划价）。证据：本轮 curl 复核 FlightScope 公开页 200。
+- **首个付费订阅已计费**：johnpeche8 订 EmailCheck PRO $9/月，状态 Active，抽后约 $6.75、月结前不算现金；截至本轮订阅者仅 2 次批量调用，12 月初续订才是考验。
+- **Gumroad 第八批＋n8n 第三批全部上架**：第八批 5 个（ShikakuPress、CryptogramPress、QueensPress、BinairoPress、MazePress，均 $29）；n8n 第三批兽医/旅行社/除虫/HVAC 四包；店铺在售合计 67（工具 42＋n8n 20＋PitchReel 2＋新词站包 3，体检 0），全盘在售总数 169。证据：本轮 curl 四包均 200 且页内价格 49.0。花店包仍按他 11-03 决定压着不上。
+- **PitchReel 迁移 AWS 收官**：悉尼 EC2（3.106.189.249）pitchreel.newkwlab.com 首页/samples/pricing/order 全 200，生产数据在 EC2（orders 16/users 11），本机只跑 render agent；48 小时回滚观察至 11-07 17:30。旧 InstaBox 入口 11-05 18:11–20:21 曾报 409 约 2 小时后恢复。
+- **SEO 工作台立项（goal_bfc0bfa92984）**：SOP-01 虹安找词法＋SOP-02 哥飞 SEO/GEO 定版；ChatGPT GEO 审计 4 站、直接修复已部署并验活；GSC 属性 binbin7418 已加为完整用户；首份按页数据点击 0、展示 2、平均排名 22.5——太薄不触发配包，继续观察。第一性原理定版（他的原话）：用户搜到，我们刚好有产品可以提供。SOP-01 找词日报自 11-06 起跑 3 天。
+- **自然流平台扩展**：api.market 卖家组织 visionwell 已建，EmailCheck 已送审、状态 In Review，开店进度 4/5（仅剩出款信息未填，攒批等他）；AlternativeTo 账号 visionwei 注册成功、邮箱已确认，约 11-12 解锁提交。
+- **项目总控台**：网站版（React＋Mosaic Lite）建成后他下令别公开——仓库 binbin7418-dotcom/project-console 已改 Private、Pages 已 404 下线，此后只用 Muse 内 artifact 版。
+- **INS 版式库 126 式编目完成**（INS-032 至 INS-221），试跑 01–03 已验证；电商成套图线他判定无价值已关；动画线已停；视频克隆/生成线 11-06 00:11 他下令推翻。TikTok 侦察号 @user8384205392879 已注册（wbin7419 邮箱，密码存保险库），首轮扫词约 20 个进雷达。
+- **nano-daily-growth 私有仓核验**：浏览器已登录会话实见 Private、main 分支、3 commits、daily/2026-11-05.md 在位（commit 3b80ee0）；11-05 篇待核验项销案。
+- **修炼汇总 11-06 篇已落盘**：~/workspace/growth-log/daily/2026-11-06.md（三节齐全，含对 11-05 篇「明日盯」的逐项更正）。
+
+### 当晚推进验收（均在授权内、零支出、零验证、零对外承诺）
+- ①PitchReel 渲染通道深度诊断（见健康检查）：纠正了「agent 自 01:25 全停」的误判——实为出口路径突发性丢包约 30%，agent 约 70% 轮询成功；裸代理修复已做但同夜重启即被运行时重写覆盖；AGENT_BASE_URL 已改指 pitchreel.newkwlab.com（直连应用、去掉网关一跳，.agent-env 600 权限不变，token 未动），agent 已重启并上线。
+- ②ATLAS.md / DAILY-OPS.md / seo-geo GOAL.md 计数与状态更新；AGENTS.md 新增出口代理规则＋同夜更正（裸地址活不过重启）。
+- ③本条目。
+
+### 未完成 / 卡点
+- 出口路径突发性丢包未根治（约 30%，突发性、与 token/主机/接口无关；单点 198.19.0.1，无多节点可切）；运行时每次启动都重写 proxy.conf 为现签 token，裸地址修复活不过重启——下次重启后需复查 drop-in 与 agent 状态。白天主机稳定性评估待办（VM 11-05 12 次＋11-06 已 2 次）。
+- TrialFinder 文档与生产不符；PRODUCTS.md 注册表仍滞后，勿以注册表为准报数。
+- n8n 社区登录会话自 11-03 丢失，私信箱未直查（心跳多次记为覆盖缺口）。
+- 三站 GSC/Bing 提交未做；Zyla 未启动；api.market 出款信息未填（攒批等他）；AlternativeTo 约 11-12 解锁。
+- Kie：API Key 始终未给（仅网站登录），948 credits 为他自报未核实；wbin7419 账号密码登录被拒。
+- 22016 模板重提包已修好（19 节点＋8 便签），挂起等他本人用 wbin7419 登录上传，不催；上传前须把行业字段 realestate 改掉。
+- Apify 诊断报告尚未按他的更正修订（031 累计费用 $1.78、其余产品 QA 恢复情况未核实完）；Apify 仍为他自管线，Muse 不运营。
+- 视频 SOP 60 秒验证片（荷塘月色）已派发、结果未回；岚叔 PPT 自有模板候选待他点头才开工；APS Deck 接模型 Key 实测 AI 生成待他拍板。
+
+### 健康检查
+- VM 重启：11-05 累计 12 次（00:13、02:18、04:27、06:36、09:19、10:45、11:44、15:18、17:02、19:21、21:22、约 23:47）；11-06 01:25:46 第 13 次、03:36:49 第 14 次（本轮复盘进行中发生）。三 unit 每次均随启动恢复，当前 agent PID 1745、watchdog 1746、keepalive 1747，均为 active。
+- 渲染通道诊断结论（本轮重点，逐项实测）：
+  - 01:25 重启后 agent 轮询报错累计 100 条（UTC 17–19 时分别为 36/33/26 条，另 11-05 白天 4 条），但成功轮询是静默的——报错时间戳呈 21 秒倍数（20 秒轮询间隔），即约 70% 轮询成功；agent 从未全停，订单仍可被领单（有延迟）。「agent 自 01:25 全停」为误判，已纠正。
+  - 对照实验（裸代理、urllib、10 次）：pitchreel /health 7/10 通、/api/agent/jobs/queued＋token 7/10 通——静态路由与认证路由失败率相同，故障与接口/token/主机无关；curl 同接口带 token 一次 200；EC2 侧健康（/health 200、队列空 {"jobs": []}、订单路由 404 正常）。
+  - 出口代理单点 198.19.0.1；直连出不去（DNS 均为 198.18.23.x 合成地址、直连 000/SSL 错），全部流量必走 hatch-egress-proxy:3128。
+  - watchdog 历史：10-31 至 11-05 08:00 UTC 基线失败率 0–6%；11-05 17:00–19:00 CST pitchreel/旧入口路径 39–50%（api 路径同期基本正常）；21:00–01:00 全 clean（0%）；01:26 后 6%/15%/16%。突发性、多时段、因主机而异——符合出口路径抖动，不符合凭证过期（过期应为 100% 失败）。
+  - 裸代理修复经过：03:09 首次重写（带当时现签 token）后 3 分钟仍 3 错，证明静态 token 不可用；03:20 改裸地址重写两份 drop-in 并重启（agent PID 16785、watchdog 16783），urllib/curl 实测通；但 03:36:49 VM 重启后约 50 秒，运行时把两份 drop-in 重写为当次现签 token（mtime 19:37:37Z），裸地址修复被覆盖。当前 agent 跑在启动现签 token 上，重启后 3 分钟 0 报错、watchdog 最新周期 8/8 通。
+  - AGENT_BASE_URL 已由 https://api.newkwlab.com 改为 https://pitchreel.newkwlab.com（.agent-env，600 权限不变；token 未动）；改前对照：api 主机＋token 的 urllib 队列请求同样时断时续，网关不是主因；直连应用去掉一跳，改动本身中性偏正。agent 已重启上线（19:37:39，重启后 0 报错）。
+  - 遗留：下次重启后须复查 drop-in 是否又被重写、agent 状态；EC2 侧无 SSH 通路（本机无 EC2 密钥、known_hosts 无记录），EC2 应用日志查不到；路径抖动未根治，白天评估主机稳定性时一并定。
+  - alerts.jsonl 536 行、error 级 252 条（03:12 轮次 505/235；新增均为 watchdog_down RemoteDisconnected＋recovered）；feedback.jsonl 仍空（0 字节，自 10-31 未变）。
+- 当日 cron：11-05/06 各轮次均 succeeded；失败标记均为心跳覆盖缺口（n8n 会话丢失、Gmail binbin 侧 token 间歇报错后自愈）与已知项，无新增服务故障。
+- 03:09/03:20/03:32 三次 agent＋watchdog 重启为本轮复盘所做（代理修复＋改直连）；03:37 重启为 VM 重启所致，非故障——心跳 03:13 轮次所记「无 VM 重启下双双重启」即本轮 03:09 操作，已在此说明。
+
+### 收入状态
+- Muse 自有线仍为 0（Gumroad 67 在售 / RapidAPI 83 / Payhip 15 / n8n 包在售 20，全盘 169，均无真实订单）；EmailCheck 首个付费订阅 $9/月已计费、抽后约 $6.75、月结前不算现金，订阅者仅 2 次批量调用、12 月初续订才是考验。无第一笔真实收益到账；无账号重大异常需夜里打扰（PitchReel 为通道抖动＋VM 频繁重启，服务未停，留白天评估）。
+
+### GitHub 同步
+- 本条目与 ATLAS.md、DAILY-OPS.md、growth-log/daily/2026-11-06.md 本轮派浏览器窗口走已有 GitHub 会话上传覆盖（factory-hub 公开仓前三文件；nano-daily-growth 私有仓 daily/2026-11-06.md 单文件传后归位 daily/）；禁换环境、禁弹凭证卡；同步完成以 API 复核为准，未完成则待同步清单即本节所列文件。
+
+### 次日优先级（11-06 白天）
+1. VM 频繁重启＋出口抖动：白天主机稳定性评估；下次重启后复查 proxy.conf 与 agent 状态（裸地址会被重写是已知行为）。
+2. SOP-01 找词日报首跑（11-06–08 三天）；GSC 按页数据继续观察，展示够量再触发配包。
+3. RapidAPI 每周二稳定性抽测首跑 11-10；C 档下架腾位补批量＋高热度品类扩品（免费档 100–200 次/月）。
+4. api.market 出款信息、AlternativeTo（11-12 解锁）攒批等他；22016 不催。
+5. PRODUCTS.md 注册表全量补齐；三站 GSC/Bing 提交。
