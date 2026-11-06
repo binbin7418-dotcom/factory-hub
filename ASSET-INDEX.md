@@ -8,7 +8,7 @@
 
 | 产品/项目 | 所属线 | 在线状态 | GitHub 仓 | 仓内与本地是否一致 | 最近核对日 |
 |---|---|---|---|---|---|
-| PitchReel 简历视频站 | PitchReel | 在线：https://pitchreel.newkwlab.com/ health 200 ok（2026-11-07 03:0x 复核） | 私有仓 pitchreel（源码备份仓，zip 形态；ASSET-MAP 写「公开」与现实不符，以现实为准：私有） | 未核对（私有仓，API 看不到；本地 video-mcp 21GB 含 data/orders/demo，快照须走 zip 路线） | 2026-11-07（仅在线状态；仓内容未核） |
+| PitchReel 简历视频站 | PitchReel | 在线：https://pitchreel.newkwlab.com/ health 200 ok（2026-11-07 03:0x 复核） | 私有仓 pitchreel（源码备份仓，zip 形态；ASSET-MAP 写「公开」与现实不符，以现实为准：私有） | 已核对：新快照 pitchreel-src-20261107.zip 已于 2026-11-07 03:27 以 .00/.01 两卷上传（提交 9689dd5、4310e2f，合计 49,045,746 B，合卷 sha256 本地已验；浏览器会话根目录核验；私有仓 API 看不到） | 2026-11-07 |
 | SnapDuo 趋势梗合照站 | SnapDuo | 在线：https://api.newkwlab.com/duo/ 200（26,117 B，2026-11-07 03:0x 复核）；/duo/health ok | 公开仓 https://github.com/binbin7418-dotcom/snapduo | 一致：仓内 9 文件与本地对应文件大小逐一对上；唯一差异是 README.md 仅仓内有（170 B，本地无同名文件，不算缺口） | 2026-11-07 |
 | Starlight Stories 个性化故事书 | 故事书 | 在线：https://api.newkwlab.com/book/ 200（42,438 B）；/book/health ok | 公开仓 https://github.com/binbin7418-dotcom/storybook-site | 一致：仓内 7 文件与本地对应文件大小逐一对上；媒体文件按规矩未入仓 | 2026-11-07 |
 | PaperStage 纸片动画 | PaperStage | 在线：https://api.newkwlab.com/clip/ 200（44,710 B）；/clip/health ok | 公开仓 https://github.com/binbin7418-dotcom/paperstage-site | 一致：仓内 6 文件与本地对应文件大小逐一对上；媒体文件（样片/场景图）按规矩未入仓 | 2026-11-07 |
@@ -27,7 +27,7 @@
 
 | 产品/项目 | 所属线 | 在线状态 | GitHub 仓 | 仓内与本地是否一致 | 最近核对日 |
 |---|---|---|---|---|---|
-| RapidAPI 服务源码备份 | RapidAPI | 83 个在售（11-06 全量核对） | 私有仓 rapidapi-sources（zip 备份） | 未核对（私有仓，API 看不到）；本地 ~/workspace/backups-staging/rapidapi/ 有 batch1–15＋first-api.zip；修复快照 rapidapi-repair-20261106.zip（477,590 B，含 5 品修复后源码＋dist）已备未传——首批欠账第 2 笔，今晚传 | 2026-11-07（仅本地备料） |
+| RapidAPI 服务源码备份 | RapidAPI | 83 个在售（11-06 全量核对） | 私有仓 rapidapi-sources（zip 备份） | 已核对：修复快照 rapidapi-repair-20261106.zip 已于 2026-11-07 03:24 上传（提交 d9b4204，466 KB＝477,590 B，浏览器会话双重核验）；仓内其余 batch  zip 内容未逐一核对（私有仓，API 看不到） | 2026-11-07 |
 | 产品工厂备份 | 产品工厂 | — | 私有仓 product-factory（总表/第五批/n8n 包源码 zip，2026-11-02 第二窗口复核） | 未核对（此后改动未追踪） | 2026-11-02 |
 | skills 备份 | 能力资产 | — | 私有仓 skills-backup（2026-11-02 建成复核） | 不一致：lemo-opuscar 112MB 全仓未入（超网页单文件 25MB 上限，待瘦身方案）；2026-11-05 新入库 clone-website、motionsites-web-builder 未进备份 | 2026-11-07（缺口已知） |
 | 故事实验备份 | 故事线 | 故事线已暂停 | 私有仓 story-koubo（2026-11-02 建成复核） | 未核对（此后改动未追踪） | 2026-11-02 |
@@ -70,6 +70,7 @@
 
 ## 今晚补齐进度（2026-11-07 首跑）
 
-- 已补：本表首版建立；video-mcp 新快照 pitchreel-src-20261107.zip 已打好（49MB、229 文件，排除 web/data、缓存、demo-video、密钥文件，含 outro 修复＋Screening 接入代码＋AUP 条款新版），待传 pitchreel 私有仓；RapidAPI 修复快照已备（477,590 B），待传 rapidapi-sources 私有仓；fashionwalk-site 建仓备料齐（README.md 新写、10 个文本文件清单），待浏览器建仓＋单传。
+- 已补：本表首版建立；video-mcp 新快照 pitchreel-src-20261107.zip 已以 .00/.01 两卷上传 pitchreel 私有仓（03:27，提交 9689dd5、4310e2f，合计 49,045,746 B，合卷 sha256 本地已验）；RapidAPI 修复快照 rapidapi-repair-20261106.zip 已于 03:24 上传 rapidapi-sources 私有仓（提交 d9b4204，浏览器会话双重核验）；fashionwalk-site 建仓备料齐（README.md 新写、10 个文本文件清单），浏览器建仓进行中。
+- 注意：本表 rapidapi-sources 行在 factory-hub 同步窗口授权文件之后又更新了一行（修复快照已传），仓内 ASSET-INDEX.md 可能滞后这一行，次日复核时以 API 为准再补传。
 - 待传（浏览器窗口进行中，传完 API 核验）：factory-hub 五文件（ATLAS.md、PROGRESS.md、DAILY-OPS.md、ASSET-MAP.md、ASSET-INDEX.md）、nano-daily-growth daily/2026-11-07.md。
 - 还缺：html-slides-template-pack 17 套增量（约 300 文件，manifest v2 已备，分多夜传）；skills-backup 缺口（lemo 瘦身方案、clone-website/motionsites 入库）；B/C 类集合仓与 nano-memory 未建（按 ASSET-MAP 执行口径分批，不一夜全搬）；free-ai-gateway、terra/genie4/kling4、sku-ops-landing 等行的本地对照未核。
