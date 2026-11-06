@@ -204,3 +204,69 @@
 3. RapidAPI 每周二稳定性抽测首跑 11-10；C 档下架腾位补批量＋高热度品类扩品（免费档 100–200 次/月）。
 4. api.market 出款信息、AlternativeTo（11-12 解锁）攒批等他；22016 不催。
 5. PRODUCTS.md 注册表全量补齐；三站 GSC/Bing 提交。
+
+## 2026-11-07（凌晨复盘，覆盖 11-06 白天至 11-07 03:3x；本 cron 产物，只写文件、不打扰）
+
+### 已完成（均已核验，证据见各条）
+- **RapidAPI 全量核对＋推 10 品＋稳定性修复**：101 个 API 全量核对：近 30 天总调用 23 次；外部订阅者 11 人，付费仍仅 johnpeche8 一人（EmailCheck PRO $9/月、抽后 $6.75、月结 Pending、12 月初续订是考验）；有外部用户或调用的品 10 个，其余 91 个零调用零外部用户。推 10 品（EmailCheck、PhoneCheck、FXRates、HostIntel、VinScope、FlightScope、NeoSky、AirWatch、LyricLine、CardCheck）长描述两批均已在 Studio 替换；agent-catalog 置顶 10 品、总 65 品（在线 catalog.json 315,881 B，与仓内/本地一致，2026-11-07 03:2x 复核）。稳定性抽测 95/99，ClassicBooks、PitLane、TideBase、MedLit 已修好复测通过；NeoSky 修不了（NASA APOD 只返占位内容，不造假数据，仍 503）。修复快照 rapidapi-repair-20261106.zip（477,590 B）已备，今晚传 rapidapi-sources 私有仓。证据：本轮 API trees 对照＋在线 catalog 大小一致。
+- **api.market 8 品**：开店 5/5 完成（出款信息 PayPal 1060207169@qq.com 已填）；已上线 2（EmailCheck 11-06 05:29、PhoneCheck 11-06 14:01 批准）、在审 5（FXRates 已修 spec base/symbols→from/to 并重新提交、VinScope、IBANCheck、WeatherNow、HolidayCal）、草稿 1（HostIntel：Shodan InternetDB 免费版非商业用途问题；RapidAPI 侧已改回 Public，若平台找上门第一时间撤下）。WeatherNow /search 参数是 name 不是 q；CardCheck 确有批量端点（上限 100 条/次）。
+- **新站四线全部上线**（同套架构）：SnapDuo https://api.newkwlab.com/duo/（Gumroad 解锁包 $9.99＋Tip 打赏；Kie Nano Banana 2.1，3 credits ≈ $0.015/张；孤儿任务自愈已上线；僵尸模板他否掉「太 AI 了，不够自然」已下架）、Starlight Stories https://api.newkwlab.com/book/（Gumroad $19.99 ennflz；样书 v1 自有通道出图零废帧；朗读定版 Gemini TTS Sulafat）、PaperStage https://api.newkwlab.com/clip/（Gumroad Solo $12.99/Duo $19.99 jibnek；圣诞版静挂不推，先推时尚）、Fashion Citywalk https://api.newkwlab.com/walk/（Gumroad $12.99 okgucl，六款）。证据：本轮 curl 四站首页与 /health 均 200（/walk/ 64,486 B、/duo/ 26,117 B、/book/ 42,438 B、/clip/ 44,710 B）；Gumroad okgucl 公开页含 "SIX TEMPLATES" 与 $12.99；IG Reel DfaOLkPT9S3 已核（时尚 Citywalk 内容，0 赞 0 评论）。FB 首发帖（facebook.com/2371952380289686）浏览器只读核验进行中，回执未到，暂不记完成。
+- **Waffo 注册＋审核提交＋打回＋取钥**：13:28 提交审核，15:01 打回两项：①条款第 5 节补 AUP（本地 terms.html 已改完，未部署上 EC2）；②接 Prompt Screening API（代码完成、单元 32/32、集成 9/9、fail-closed，未部署、未发真实请求）。生产与测试 Key 私钥已于 19:11–19:14 由 Muse 经他邮箱自行取回并存好（0600，格式已验）；部署验证待他点头，不做网站切换。提款建行卡已绑（尾号 8096）。
+- **Gumroad 店铺 67→72**：新站四线 5 个 11-06 晚上架，全盘在售总数 169→174（72+83+15+4）。仍 0 单、$0 收入；Gumroad Discover 须先有 1 笔真实销售才开。
+- **SEO 工作台**：GSC sc-domain:newkwlab.com 已验证（11-06 13:27），binbin7418 已加为完整用户；数据待 1–3 天（复查 cron 11-07 11:07，11-09 仍无数据报异常）；Bing 5 站验证、4 份 sitemap Success；Clarity 4 站 21 页；SOP-04 外链铁律定版（flaqai 743 清单，六条硬筛）。更正：首份按页数据（点击 0/展示 2/排名 22.5）实为 newkw.pages.dev 口径，非 newkwlab.com。
+- **PPT 模板包 20 套完成**：20 套×10 页型×EN/ZH 已齐（11-06 14:38），最终 zip 16.3MB/410 文件已打好（14:43）；定价方案与 Gumroad 上架待他拍板。备份仓 html-slides-template-pack 仍仅 3 套（44 文件，2026-11-07 03:2x API 核验），17 套增量约 300 文件待分多夜上传（manifest v2 已备）。
+- **Kie 已连接并验活**：连接器 custom.kie-ai，首查余额 916.5 credits；11-06 19:07 僵尸帽生成后 886.5。火山语音新 Key 落存并验活（custom.volcengine-voice；旧 custom.volcengine-speech 作废）。Gemini Veo 连接器已验活但 Veo 3 接不了（模型清单零 Veo，须项目开付费层级），他拍板先不绑。
+- **蒸馏三件**：muse-video-prompts 204 条全库分析（10 秒单元 61%、中位 854 字等，结构已定版进 video-production skill）；EianLu 单导演工作流已蒸馏；story-studio 方法已蒸馏（语料与参考图不进产品，CC BY-NC-SA 红线）。《荷塘月色》60 秒 SOP 验证片他评「一般」——不算过关，300 秒暂缓。
+- **Opire 翻案**：Opire 根本不经手付款（官方文档：付款由发单人与开发者直接安排），2026-10-24「Stripe Connect 大陆身份过不了」的淘汰结论作废；收款双轨（PayPal 直付主轨＋Gumroad 常设服务品备轨）已定版；每日侦察已接入，11-06 在架仅 3 单均不合格。
+- **低功耗挂置三线定调**：n8n 线（11-06 13:21）、Fiverr＋Payhip（11-06 16:12）——货架保留不动、不上新品、不推广、不优化，只盯订单与客户消息。Fiverr 30 天曝光 37、点击 0、订单 0。
+- **其他**：Gumroad n8n 第三批滚动 24h 上限三连拦已终结（11-05 晚四包上架）；全线作战计划已成文（13 条线，待他确认）；Claude Code 当审计脑已对齐（Sonnet 先行、首轮预算 ~$100，待他点头）；Codex 记忆不在 GitHub（84 仓全翻），真身在他 Lenovo Windows Obsidian 保险库，待他发文件后接管；每日增长运营 cron daily-growth-ops 已建（每日约 11:52）；每日运营定版（03:00 GitHub 补齐＋ASSET-INDEX 维护）；Muse 黑五线已批准开做（fastucp 底座，宠物圣诞肖像 $9.99 第一梯队）。
+
+### 当晚推进验收（均在授权内、零支出、零验证、零对外承诺）
+- ① ASSET-INDEX.md 首版建立（12,630 B）：逐仓 API 核对——snapduo 9 文件、paperstage-site 6 文件、storybook-site 7 文件与本地大小逐一对上；agent-catalog 在线 catalog.json 315,881 B 与仓内/本地一致；html-slides-template-pack 仅 44 文件（3 套）vs 本地 20 套；factory-hub 远端 ATLAS/PROGRESS/DAILY-OPS blob SHA 与本地完全一致；fashionwalk-site 无仓（API 两次查无）；Mika 仓来源待确认；未核对的行已标注。
+- ② video-mcp 新快照 pitchreel-src-20261107.zip 已打好（49MB、229 文件，排除 web/data、缓存、demo-video、密钥文件；含 outro 修复＋Screening 接入代码＋AUP 条款新版），今晚传 pitchreel 私有仓。
+- ③ ATLAS.md / DAILY-OPS.md 计数与状态更新（Gumroad 72、全盘 174、新站四线、api.market、GSC/Bing、Waffo、PPT 等）；排查清单关闭 2 项（PitchReel 回滚观察提前终结、新词三站 Bing/GSC 进展），新增 10 项（PPT 定价/上架、Waffo 部署、修复快照、fashionwalk 建仓、n8n 试用到期、作战计划、Claude Code、Mika、VM 稳定性等）。
+- ④ 修炼汇总 2026-11-07 篇已落盘（~/workspace/growth-log/daily/2026-11-07.md，三节齐全，含对 11-06 篇的逐项更正）。
+- ⑤ 本条目。
+
+### 降级项（白天「报完成」无证据，不许过夜）
+- fashionwalk-site 备份仓「已建」：GitHub API 两次查无（11-07 03:05 与 03:2x，64 公开仓清单内无此仓、直接查 404）——降级为未完成，今晚建仓补齐。
+- FB 首发帖（facebook.com/2371952380289686）：浏览器只读核验已回执——Facebook 重定向至登录页，浏览器现有会话未登录，无法查看帖子内容（作者/正文/时间/链接均未确认）；按规则未登录新账号、未弹凭证卡，已停止。降级为未核验；该帖为白天他本人环境发出，以他的设备为准，不再追查。
+- SOP-01 找词日报首跑（11-06）：11-06 日志中未见回执——待核查，不记完成。
+- 故事书/PaperStage/时尚三站的 GitHub 备份仓：paperstage-site 与 storybook-site 已核一致；fashionwalk-site 未建（见上）。
+
+### 未完成 / 卡点
+- Waffo 部署验证（terms 上 EC2＋本机接 Screening 跑真接口）待他点头，之后重提审核；Creem（3.9%+$0.40）为第一备选 MoR。
+- PPT 20 套定价方案与 Gumroad 上架待他拍板；备份仓 17 套增量分多夜上传。
+- fashionwalk-site 建仓、RapidAPI 修复快照、video-mcp 新快照：今晚已派浏览器窗口，传完 API 核验（见 GitHub 同步）。
+- SOP-01 首跑回执未见；GSC 数据复查 11-07 11:07；11-09 仍无数据报异常。
+- Bybit 身份验证问卷只能他本人处理，攒批；22016 模板重提挂起等他本人用 wbin7419 上传（行业字段 realestate 上传前须改）；wbin7419 Google 密码已过期，须他经保险库更新，攒批。
+- TikTok 他令先不推（「还没想好做什么」），等他定；全线作战计划待他确认；Claude Code 审计首轮待他点头。
+- n8n 试用 2026-11-08 到期，3 天宽限后工作流暂停；n8n 社区登录会话自 11-03 丢失，私信箱未直查。
+- TrialFinder 文档与生产不符，修复状态未见回执；PRODUCTS.md 注册表仍滞后（2026-10-29），勿以注册表为准报数。
+- VM 主机稳定性评估（白天待办）：11-06 一天 5 次重启（13–17 次），11-07 02:10 第 18 次；agent 自愈正常，但重启频率异常须白天评估。
+- Mika 公开仓来源/归属待主会话确认；skills-backup 缺口（lemo 112MB 未入、clone-website/motionsites 未进备份）；B/C 类集合仓与 nano-memory 未建（分批，不一夜全搬）。
+
+### 健康检查
+- PitchReel 公网 /health 200 ok（{"ok": true, "jobs": 0, "queued": 0}）；feedback.jsonl 仍空（0 字节，自 10-31 未变）；render agent 运行中（PID 1838，自 2026-11-06 18:11:46 UTC 上线，重启后零 error——agent.log 历史 877 条 RemoteDisconnected/Traceback 均为重启前）。
+- VM 重启：11-07 02:10:23 CST 第 18 次（uptime -s / last reboot 双证）；agent 自愈约 1 分钟。02:13 与 02:43 心跳轮次未记录此次重启（覆盖缺口，已在此补记）。
+- 当日 cron（11-06 17:43 → 11-07 03:00）：heartbeat、deterministic-doctor、feed-pulse、nightly-agent-monetization-intel 全部 succeeded，无失败。
+- 四站健康：/duo/、/book/、/clip/、/walk/ 首页与 /health 均 200（本轮复核）。
+
+### 收入状态
+- 仍为 0（Gumroad 72 在售 / RapidAPI 83 / Payhip 15 / n8n 包在售 20 / api.market 8 品，全盘 174，均无真实订单）；EmailCheck 首个付费订阅 $9/月已计费、抽后 $6.75、月结 Pending、12 月初续订才是考验。无第一笔真实收益到账；无账号重大异常需夜里打扰（VM 频繁重启留白天评估）。
+
+### GitHub 同步
+- 今晚派浏览器窗口走已有 GitHub 会话（禁换环境、禁弹凭证卡），逐个单文件传、每批 ≤2 文件，传完 API trees/大小核验：
+  1. factory-hub 公开仓：ATLAS.md、PROGRESS.md、DAILY-OPS.md、ASSET-MAP.md（新增）、ASSET-INDEX.md（新增）——覆盖同名文件。结果（2026-11-07 03:27–03:3x）：ATLAS.md ✅（23,729 B，提交 f93ca15，API blob SHA 与本地一致）、DAILY-OPS.md ✅（11,741 B，提交 c0d2882，SHA 一致）、ASSET-MAP.md ✅（3,456 B，提交 89ac649，SHA 一致）、ASSET-INDEX.md 首传 ✅（12,630 B，提交 9ddb492）但本地随后又改了三行（rapidapi/pitchreel 行＋补齐进度），现本地 12,907 B，已重新授权补传；PROGRESS.md 首授因本地编辑后大小变了（授权 52,718 B vs 实际 53,813 B）被拒三次未传，已重新授权（53,813 B）补传。两文件补传回执待到。
+  2. fashionwalk-site 公开仓（新建）：README.md、web/app.py、web/site/index.html、web/site/llms.txt、fashion_config.example.json、deploy/README.md、SPEC.md、BUILD-REPORT.md、REDESIGN.md、SWAP-REPORT.md（真实配置 fashion_config.json 与 .bak-precut、媒体不传）。回执待到。
+  3. nano-daily-growth 私有仓：daily/2026-11-07.md——✅ 已同步并核验（2026-11-07 03:23 CST，提交 2d1d38f2018d0e2de0ad96782c532d867c2625ac；浏览器会话文件页＋提交历史双重核验，13.1 KB/72 行与本地 13,410 B/72 行一致；私有仓 API 404 属预期，无法走 API 复核）。
+  4. rapidapi-sources 私有仓：rapidapi-repair-20261106.zip——✅ 已同步并核验（2026-11-07 03:24 CST，提交 d9b4204a457a115475d4b7f6bb5a58249658e46a；浏览器会话根目录列表＋文件详情页双重核验，GitHub 显示 466 KB 与本地 477,590 B 相符；私有仓 API 404 属预期）。
+  5. pitchreel 私有仓：pitchreel-src-20261107.zip（49MB）——GitHub 网页上传单文件上限 25MB，整包被拒；已改分卷方案：✅ 两卷均已上传并核验（.00 25,165,824 B，提交 9689dd5；.01 23,879,922 B，提交 4310e2f；合计 49,045,746 B 与原文件一致，合卷 sha256 0877e968…本地已验；浏览器会话根目录列表核验；私有仓 API 404 属预期）。
+- 同步完成以 API 复核为准；本条目写时各窗口回执未到，待同步清单即本节所列文件，核验后补记结果。FB 首发帖核验回执已到：登录墙，未核验（见降级项）。
+
+### 次日优先级（11-07 白天）
+1. VM 频繁重启＋出口抖动：白天主机稳定性评估；下次重启后复查 proxy.conf 与 agent 状态。
+2. 核验今晚五路 GitHub 同步回执（API trees/大小），未成的补传；fashionwalk-site 建仓若未成，白天继续。
+3. GSC 数据复查（11:07 runonce）；SOP-01 找词日报首跑回执核查；每日增长运营首跑（11:52）。
+4. Waffo 部署验证攒批报他点头；PPT 20 套定价方案报他拍板；全线作战计划、Claude Code 审计首轮攒批报他确认。
+5. Opire 每日侦察首跑（09:52）；RapidAPI 稳定性周测首跑 11-10 准备；NeoSky 不修（占位数据不造假）。
